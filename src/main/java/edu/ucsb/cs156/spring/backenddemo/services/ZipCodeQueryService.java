@@ -22,6 +22,8 @@ import org.springframework.web.client.HttpClientErrorException;
 @Service
 public class ZipCodeQueryService {
 
+    ObjectMapper mapper = new ObjectMapper();
+
     private final RestTemplate restTemplate;
 
     public ZipCodeQueryService(RestTemplateBuilder restTemplateBuilder) {

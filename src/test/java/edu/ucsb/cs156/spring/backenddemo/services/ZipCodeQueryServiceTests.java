@@ -11,6 +11,28 @@ import static org.springframework.test.web.client.match.MockRestRequestMatchers.
 import static org.springframework.test.web.client.response.MockRestResponseCreators.withSuccess;
 import static org.springframework.test.web.client.match.MockRestRequestMatchers.header;
 
+@RestClientTest(ZipCodeQueryService.class)
 public class ZipCodeQueryServiceTests {
-    
+
+    @Autowired
+    private MockRestServiceServer mockRestServiceServer;
+
+    @Autowired
+    private ZipCodeQueryService zipcodeQueryService;
+
+    @Test
+    public void test_getJSON() {
+        String zipcode = "93117";
+        String expectedURL = ZipCodeQueryService.ENDPOINT.replace("{zipcode}", zipcode);
+
+        String fakeJsonResult = "{ \"fake\" : \"result\" }";
+
+        this.mockRestServiceServer.expect(requestTo(expectedURL))
+                .andExpect(header("Accept", MediaType.APPLICATION_JSON.toString()))
+                .andExpect(header("Content-Type", MediaType.APPLICATION_JSON.toString()))
+                .andRespond(withSuccess(fakeJsonResult, MediaType.APPLICATION_JSON));
+        
+        String actualResult = zipcodeQueryService.getJSON(zipcode);
+        assertEquals(fakeJsonResult, actualResult);
+    }
 }
