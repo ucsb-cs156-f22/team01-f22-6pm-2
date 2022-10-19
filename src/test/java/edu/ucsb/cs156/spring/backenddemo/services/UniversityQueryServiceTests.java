@@ -13,7 +13,7 @@ import static org.springframework.test.web.client.response.MockRestResponseCreat
 
 import static org.springframework.test.web.client.match.MockRestRequestMatchers.header;
 
-@RestClientTest(CountryCodeQueryService.class)
+@RestClientTest(UniversityQueryService.class)
 public class UniversityQueryServiceTests {
 
     @Autowired
@@ -35,7 +35,7 @@ public class UniversityQueryServiceTests {
                 .andExpect(header("Content-Type", MediaType.APPLICATION_JSON.toString()))
                 .andRespond(withSuccess(fakeJsonResult, MediaType.APPLICATION_JSON));
 
-        String actualResult = countryCodeQueryService.getJSON(name);
+        String actualResult = UniversityQueryService.getJSON(name);
         assertEquals(fakeJsonResult, actualResult);
     }
 }
