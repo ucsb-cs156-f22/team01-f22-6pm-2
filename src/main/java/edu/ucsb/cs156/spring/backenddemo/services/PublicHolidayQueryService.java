@@ -42,7 +42,10 @@ public class PublicHolidayQueryService {
 
         HttpEntity<String> entity = new HttpEntity<>("body", headers);
 
+        ResponseEntity<String> re = restTemplate.exchange(ENDPOINT, HttpMethod.GET, entity, String.class,
+                uriVariables);
+
         
-        return re.getBody();;
+        return re.getBody();
     }
 }
