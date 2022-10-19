@@ -24,9 +24,9 @@ public class RedditQueryServiceTests {
     @Test
     public void test_getJSON() {
 
-        String subreddit = "UCSantaBarbara";
+        String reddit = "UCSantaBarbara";
 
-        String expectedURL = RedditQueryService.ENDPOINT.replace("{subreddit}", subreddit);
+        String expectedURL = RedditQueryService.ENDPOINT.replace("{reddit}", reddit);
 
         String fakeJsonResult = "{ \"fake\" : \"result\" }";
 
@@ -35,7 +35,7 @@ public class RedditQueryServiceTests {
                 .andExpect(header("Content-Type", MediaType.APPLICATION_JSON.toString()))
                 .andRespond(withSuccess(fakeJsonResult, MediaType.APPLICATION_JSON));
 
-        String actualResult = redditQueryService.getJSON(subreddit);
+        String actualResult = redditQueryService.getJSON(reddit);
         assertEquals(fakeJsonResult, actualResult);
     }
 }
