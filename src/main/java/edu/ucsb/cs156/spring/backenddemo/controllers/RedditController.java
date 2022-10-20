@@ -28,10 +28,10 @@ public class RedditController {
     @Autowired
     RedditQueryService redditQueryService;
 
-    @ApiOperation(value = "Get a subreddit's info")
+    @ApiOperation(value = "Get posts from a subreddit of Reddit.com")
     @GetMapping("/get")
     public ResponseEntity<String> getSubreddits(
-        @ApiParam("subreddit name") @RequestParam String subreddit
+        @ApiParam("subreddit, e.g. UCSantaBarbara") @RequestParam String subreddit
     ) throws JsonProcessingException {
         log.info("getSubreddits: subreddit={}", subreddit);
         String result = redditQueryService.getJSON(subreddit);
