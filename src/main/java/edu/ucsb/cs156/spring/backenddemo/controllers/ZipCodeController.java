@@ -27,7 +27,7 @@ public class ZipCodeController {
     @Autowired
     ZipCodeQueryService zipcodeQueryService;
 
-    @ApiOperation(value="Get information about a us zipcode", notes="")
+    @ApiOperation(value="Get information about a us zipcode", notes="Sample and documentation: https://www.zippopotam.us/")
     @GetMapping("/get")
     public ResponseEntity<String> getCountryCodes(
         @ApiParam("zipcode, e.g. 93117") @RequestParam String zipcode
