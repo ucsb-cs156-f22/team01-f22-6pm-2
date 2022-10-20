@@ -17,7 +17,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 
-@Api(description="Zip Code info from https://www.zippopotam.us/")
+@Api(description="Zip Code Information from https://www.zippopotam.us/")
 @Slf4j
 @RestController
 @RequestMapping("/api/zipcode")
@@ -27,7 +27,7 @@ public class ZipCodeController {
     @Autowired
     ZipCodeQueryService zipcodeQueryService;
 
-    @ApiOperation(value="Get the location of a zip code", notes="Website: https://www.zippopotam.us/")
+    @ApiOperation(value="Get information about a us zipcode", notes="")
     @GetMapping("/get")
     public ResponseEntity<String> getCountryCodes(
         @ApiParam("zipcode, e.g. 93117") @RequestParam String zipcode
