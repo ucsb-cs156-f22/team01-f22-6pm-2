@@ -5,19 +5,16 @@ Lab instructions: <https://ucsb-cs156.github.io/f22/lab/team01/>
 * TODO: Update the following table, then delete this line that says "TODO".
 
 ```
-|   Name    | GitHub Id |  Service                    | Controller                |
-|-----------|-----------|-----------------------------|---------------------------| 
-|           |           | `LocationQueryService`      | `LocationController`      |   
-|           |           | `PublicHolidayQueryService` | `PublicHolidayController` |   
-|           |           | `RedditQueryService`        | `RedditController`        |   
-|           |           | `TidesQueryService`         | `TidesController`         |   
-|           |           | `UniversityQueryService`    | `UniversityController`    |
-|           |           | `ZipCodeQueryService`       | `ZipCodeController`       |
+|   Name              | GitHub Id         |  Service                    | Controller                |
+|---------------------|-------------------|-----------------------------|---------------------------| 
+|                     |                   | `LocationQueryService`      | `LocationController`      |   
+|                     |                   | `PublicHolidayQueryService` | `PublicHolidayController` |   
+|                     |                   | `RedditQueryService`        | `RedditController`        |   
+|Christian Van Stralen|christianvanstralen| `TidesQueryService`         | `TidesController`         |   
+|                     |                   | `UniversityQueryService`    | `UniversityController`    |
+|                     |                   | `ZipCodeQueryService`       | `ZipCodeController`       |
 ```
-
-https://github.com/ucsb-cs156-f22/team01-f22-6pm-2
-
-Repo: https://ucsb-cs156-f22/STARTER-team01
+Repo: https://github.com/ucsb-cs156-f22/team01-f22-6pm-2
 
 * TODO: Correct the links to app on Heroku below, 
   then delete this TODO.  Replace it with 
