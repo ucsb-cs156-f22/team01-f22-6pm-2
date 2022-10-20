@@ -30,7 +30,6 @@ public class TidesQueryService {
         restTemplate = restTemplateBuilder.build();
     }
 
-    // Documentation for endpoint is at: https://api.tidesandcurrents.noaa.gov/api/prod/
     public static final String ENDPOINT = "https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?application=ucsb-cs156&begin_date={beginDate}&end_date={endDate}&station={station}&product=predictions&datum=mllw&units=english&time_zone=lst_ldt&interval=hilo&format=json";
 
     public String getJSON(String beginDate, String endDate, String station) throws HttpClientErrorException {
@@ -41,14 +40,11 @@ public class TidesQueryService {
         headers.setContentType(MediaType.APPLICATION_JSON);
 
         HttpEntity<String> entity = new HttpEntity<>(headers);
-        //WATCH THE VIDEO
 
-        //Change to fit my service parameters
         Map<String, String> uriVariables = Map.of("beginDate", beginDate, "endDate", endDate, "station", station);
 
         ResponseEntity<String> re = restTemplate.exchange(ENDPOINT, HttpMethod.GET, entity, String.class,
                 uriVariables);
         return re.getBody();
-        //return "";
     }
 }
