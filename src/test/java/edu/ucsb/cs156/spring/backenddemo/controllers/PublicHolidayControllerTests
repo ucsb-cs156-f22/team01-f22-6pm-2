@@ -21,7 +21,7 @@ import static org.mockito.Mockito.times;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-@WebMvcTest(value = PublicHolidayController.class)
+@WebMvcTest(value = PublicHolidaysController.class)
 public class PublicHolidayControllerTests {
   private ObjectMapper mapper = new ObjectMapper();
   @Autowired
@@ -31,7 +31,7 @@ public class PublicHolidayControllerTests {
 
 
   @Test
-  public void test_getPublicHoliday() throws Exception {
+  public void test_getPublicHolidays() throws Exception {
   
     String fakeJsonResult="{ \"fake\" : \"result\" }";
     String year = "2022";
