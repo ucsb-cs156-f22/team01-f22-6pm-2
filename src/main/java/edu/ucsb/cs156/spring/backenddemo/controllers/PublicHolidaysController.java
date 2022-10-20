@@ -32,7 +32,7 @@ public class PublicHolidaysController {
 
     @ApiOperation(value = "Get public holidays for a given year and country", notes = "Public Holiday Info received here: https://date.nager.at/Api")
     @GetMapping("/get")
-    public ResponseEntity<String> getPublicHoliday(
+    public ResponseEntity<String> getPublicHolidays(
         @ApiParam("year, e.g. 2012") @RequestParam String year,
         @ApiParam("2 letter country code, e.g. US, MX, CN") @RequestParam String countryCode
     ) throws JsonProcessingException {
