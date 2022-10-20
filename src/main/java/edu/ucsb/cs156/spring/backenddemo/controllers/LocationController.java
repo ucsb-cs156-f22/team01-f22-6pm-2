@@ -18,10 +18,10 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 
-@Api(description="Location Info")
+@Api(description="Get list of locations that match a given location name")
 @Slf4j
 @RestController
-@RequestMapping("/api/earthquakes")
+@RequestMapping("/api/location")
 public class LocationController {
     
     ObjectMapper mapper = new ObjectMapper();
@@ -29,7 +29,7 @@ public class LocationController {
     @Autowired
     LocationQueryService locationQueryService;
 
-    @ApiOperation(value = "Get Location Info", notes = "JSON return format documented here: <insert link>")
+    @ApiOperation(value = "Location info from nominatim.org", notes = "Uses API documented here: https://nominatim.org/release-docs/develop/api/Search/")
     @GetMapping("/get")
     public ResponseEntity<String> getLocation(
         @ApiParam("location") @RequestParam String location
