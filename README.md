@@ -16,12 +16,7 @@ Lab instructions: <https://ucsb-cs156.github.io/f22/lab/team01/>
 ```
 Repo: https://github.com/ucsb-cs156-f22/team01-f22-6pm-2
 
-* TODO: Correct the links to app on Heroku below, 
-  then delete this TODO.  Replace it with 
-  a link to your running app on Heroku, e.g.
-  https://cs156-f22-5pm-2-team01.herokuapp.com
-
-On Heroku: https://cs156-f22-5pm-2-team01.herokuapp.com
+On Heroku: https://f22-6pm-2-team01.herokuapp.com/
 
 ## About this repo
 
