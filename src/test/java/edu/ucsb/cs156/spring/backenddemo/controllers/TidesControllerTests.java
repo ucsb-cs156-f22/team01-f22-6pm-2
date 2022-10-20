@@ -9,7 +9,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 
-import edu.ucsb.cs156.spring.backenddemo.services.PublicHolidayQueryService;
+import edu.ucsb.cs156.spring.backenddemo.services.TidesQueryService;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyLong;
@@ -21,25 +21,32 @@ import static org.mockito.Mockito.times;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-@WebMvcTest(value = PublicHolidayController.class)
-public class PublicHolidayControllerTests {
-  private ObjectMapper mapper = new ObjectMapper();
-  @Autowired
-  private MockMvc mockMvc;
-  @MockBean
-  PublicHolidayQueryService mockPublicHolidayQueryService;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.springframework.http.HttpHeaders;
+
+@WebMvcTest(value = TidesController.class)
+public class TidesControllerTests {
+    private ObjectMapper mapper = new ObjectMapper();
+    @Autowired
+    private MockMvc mockMvc;
+    @MockBean
+    TidesQueryService mockTidesQueryService;
 
 
-  @Test
-  public void test_getPublicHoliday() throws Exception {
+    @Test
+    public void test_getTides() throws Exception {
   
     String fakeJsonResult="{ \"fake\" : \"result\" }";
-    String year = "2022";
-    String countryCode = "US";
+    String beginDate = "20200109";
+    String endDate = "20200110";
+    String station = "9411340";
+    when(mockTidesQueryService.getJSON(eq(beginDate),eq(endDate),eq(station))).thenReturn(fakeJsonResult);
 
-    when(mockPublicHolidayQueryService.getJSON(eq(year),eq(countryCode))).thenReturn(fakeJsonResult);
-
-    String url = String.format("/api/publicholidays/get?year=%s&countryCode=%s", year, countryCode);
+    String url = String.format("/api/tides/get?beginDate=%s&endDate=%s&station=%s",beginDate,endDate,station);
 
     MvcResult response = mockMvc
         .perform( get(url).contentType("application/json"))
@@ -49,5 +56,4 @@ public class PublicHolidayControllerTests {
 
     assertEquals(fakeJsonResult, responseString);
   }
-
 }

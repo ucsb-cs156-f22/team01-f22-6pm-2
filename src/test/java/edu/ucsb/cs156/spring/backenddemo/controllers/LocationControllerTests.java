@@ -9,7 +9,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 
-import edu.ucsb.cs156.spring.backenddemo.services.PublicHolidayQueryService;
+import edu.ucsb.cs156.spring.backenddemo.services.LocationQueryService;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyLong;
@@ -21,25 +21,31 @@ import static org.mockito.Mockito.times;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-@WebMvcTest(value = PublicHolidayController.class)
-public class PublicHolidayControllerTests {
+import java.util.ArrayList;
+import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.springframework.http.HttpHeaders;
+
+
+@WebMvcTest(value = LocationController.class)
+public class LocationControllerTests {
   private ObjectMapper mapper = new ObjectMapper();
   @Autowired
   private MockMvc mockMvc;
   @MockBean
-  PublicHolidayQueryService mockPublicHolidayQueryService;
+  LocationQueryService mockLocationQueryService;
 
 
   @Test
-  public void test_getPublicHoliday() throws Exception {
+  public void test_getLocation() throws Exception {
   
     String fakeJsonResult="{ \"fake\" : \"result\" }";
-    String year = "2022";
-    String countryCode = "US";
+    String location = "SantaMaria";
+    when(mockLocationQueryService.getJSON(eq(location))).thenReturn(fakeJsonResult);
 
-    when(mockPublicHolidayQueryService.getJSON(eq(year),eq(countryCode))).thenReturn(fakeJsonResult);
-
-    String url = String.format("/api/publicholidays/get?year=%s&countryCode=%s", year, countryCode);
+    String url = String.format("/api/location/get?location=%s",location);
 
     MvcResult response = mockMvc
         .perform( get(url).contentType("application/json"))
