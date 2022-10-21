@@ -6,7 +6,7 @@ Lab instructions: <https://ucsb-cs156.github.io/f22/lab/team01/>
 |   Name                | GitHub Id           |  Service                    | Controller                |
 |-----------------------|---------------------|-----------------------------|---------------------------| 
 | Zack Glazewski        | zackglazewski       | `LocationQueryService`      | `LocationController`      |   
-| Trista Qui            | sitianqui           | `PublicHolidayQueryService` | `PublicHolidayController` |   
+| Trista Qiu            | sitianqiu           | `PublicHolidayQueryService` | `PublicHolidayController` |   
 | Brian Ozawa-Burns     | BrianOzburns        | `RedditQueryService`        | `RedditController`        |   
 | Christian Van Stralen | christianvanstralen | `TidesQueryService`         | `TidesController`         |   
 | Mingyu Xie            | BrownieYi           | `UniversityQueryService`    | `UniversityController`    |
