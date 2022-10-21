@@ -20,7 +20,7 @@ import io.swagger.annotations.ApiParam;
 @Api(description="Info from Reddit.com")
 @Slf4j
 @RestController
-@RequestMapping("/api/subreddits")
+@RequestMapping("/api/reddit")
 public class RedditController {
 
     ObjectMapper mapper = new ObjectMapper();
@@ -30,10 +30,10 @@ public class RedditController {
 
     @ApiOperation(value = "Get posts from a subreddit of Reddit.com")
     @GetMapping("/get")
-    public ResponseEntity<String> getSubreddits(
+    public ResponseEntity<String> getSubreddit(
         @ApiParam("subreddit, e.g. UCSantaBarbara") @RequestParam String subreddit
     ) throws JsonProcessingException {
-        log.info("getSubreddits: subreddit={}", subreddit);
+        log.info("getSubreddit: subreddit={}", subreddit);
         String result = redditQueryService.getJSON(subreddit);
         return ResponseEntity.ok().body(result);
     }
