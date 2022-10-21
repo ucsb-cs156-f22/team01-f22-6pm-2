@@ -28,7 +28,7 @@ public class RedditQueryService {
         restTemplate = restTemplateBuilder.build();
     }
 
-    public static final String ENDPOINT = "https://www.reddit.com/r/{reddit}.json";
+    public static final String ENDPOINT = "https://www.reddit.com/r/{subreddit}.json";
 
     public String getJSON(String reddit) throws HttpClientErrorException {
         log.info("reddit={}", reddit);

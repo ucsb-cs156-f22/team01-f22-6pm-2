@@ -26,7 +26,7 @@ public class RedditQueryServiceTests {
 
         String reddit = "UCSantaBarbara";
 
-        String expectedURL = RedditQueryService.ENDPOINT.replace("{reddit}", reddit);
+        String expectedURL = RedditQueryService.ENDPOINT.replace("{subreddit}", reddit);
 
         String fakeJsonResult = "{ \"fake\" : \"result\" }";
 
