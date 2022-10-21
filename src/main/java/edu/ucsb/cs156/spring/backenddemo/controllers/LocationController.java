@@ -18,10 +18,11 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 
-@Api(description="Get list of locations that match a given location name")
+@Api(description="Location info from nominatim.org")
+
 @Slf4j
 @RestController
-@RequestMapping("/api/location")
+@RequestMapping("/api/locations")
 public class LocationController {
     
     ObjectMapper mapper = new ObjectMapper();
@@ -29,10 +30,10 @@ public class LocationController {
     @Autowired
     LocationQueryService locationQueryService;
 
-    @ApiOperation(value = "Location info from nominatim.org", notes = "Uses API documented here: https://nominatim.org/release-docs/develop/api/Search/")
+    @ApiOperation(value = "Get list of locations that match a given location name", notes = "Uses API documented here: https://nominatim.org/release-docs/develop/api/Search/")
     @GetMapping("/get")
     public ResponseEntity<String> getLocation(
-        @ApiParam("location") @RequestParam String location
+        @ApiParam("name to search, e.g. 'Isla Vista' or 'Eiffel Tower'") @RequestParam String location
     ) throws JsonProcessingException {
         log.info("getLocation: location={}", location);
         String result = locationQueryService.getJSON(location);
