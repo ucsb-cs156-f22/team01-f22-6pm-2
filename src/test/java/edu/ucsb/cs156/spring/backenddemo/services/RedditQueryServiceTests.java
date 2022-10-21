@@ -24,9 +24,9 @@ public class RedditQueryServiceTests {
     @Test
     public void test_getJSON() {
 
-        String reddit = "UCSantaBarbara";
+        String subreddit = "UCSantaBarbara";
 
-        String expectedURL = RedditQueryService.ENDPOINT.replace("{subreddit}", reddit);
+        String expectedURL = RedditQueryService.ENDPOINT.replace("{subreddit}", subreddit);
 
         String fakeJsonResult = "{ \"fake\" : \"result\" }";
 
@@ -36,7 +36,7 @@ public class RedditQueryServiceTests {
                 .andExpect(header("User-Agent","spring-boot:cs156-team01:f22 (by /u/BrianOzburns)"))
                 .andRespond(withSuccess(fakeJsonResult, MediaType.APPLICATION_JSON));
 
-        String actualResult = redditQueryService.getJSON(reddit);
+        String actualResult = redditQueryService.getJSON(subreddit);
         assertEquals(fakeJsonResult, actualResult);
     }
 }
