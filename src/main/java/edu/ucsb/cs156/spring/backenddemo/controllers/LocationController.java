@@ -22,7 +22,7 @@ import io.swagger.annotations.ApiParam;
 
 @Slf4j
 @RestController
-@RequestMapping("/api/location")
+@RequestMapping("/api/locations")
 public class LocationController {
     
     ObjectMapper mapper = new ObjectMapper();
